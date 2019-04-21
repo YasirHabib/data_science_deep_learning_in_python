@@ -1,4 +1,5 @@
 # Section 5, Lecture 36
+# This is extension of logistic_train_7.py from the previous course!
 
 import numpy as np
 import matplotlib.pyplot as plt
