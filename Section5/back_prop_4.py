@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
+
+def softmax(a):
+	expA = np.exp(a)
+	return expA / expA.sum(axis = 1, keepdims = True)
 	
 def forward(X, w, b, v, c):
 	# use sigmoid nonlinearity in the hidden layer
@@ -12,9 +16,7 @@ def forward(X, w, b, v, c):
 	
 	# calculate softmax of the next layer
 	A = np.dot(z, v) + c
-	expA = np.exp(A)
-	Y = expA / expA.sum(axis = 1, keepdims = True)
-	return Y, z
+	return softmax(A), z
 
 # determine the classification rate
 # num correct / num total
